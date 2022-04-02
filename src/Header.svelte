@@ -1,4 +1,5 @@
 <script>
+  import { xcount, ocount } from './store';
   export let player;
 </script>
 
@@ -6,14 +7,14 @@
   <h1 class="title">Tic Tac Toe</h1>
   <div class="score">
     <div class="x">
-      X <span>-</span>
+      X <span>{$xcount === 0 ? '-' : $xcount}</span>
     </div>
     <div class="o">
-      O <span>-</span>
+      O <span>{$ocount === 0 ? '-' : $ocount}</span>
     </div>
   </div>
   <div class="turn">
-    {player}'s turn
+    {player ? player : 'Boom'}'s turn
   </div>
 </header>
 
@@ -44,12 +45,15 @@
   }
   .x {
     margin-right: 7.5rem;
-    border: 3px solid #009ddc;
-    color: #009ddc;
+    border: 3px solid var(--x);
+    color: var(--x);
   }
   .o {
     margin-left: 7.5rem;
-    border: 3px solid #f26430;
-    color: #f26430;
+    border: 3px solid var(--o);
+    color: var(--o);
+  }
+  .turn {
+    margin-top: 20px;
   }
 </style>
